@@ -2,8 +2,8 @@
  * @Author: Jason
  * @Date: 2020-01-20 15:30:09
  * @version: 
- * @LastEditors  : Jason
- * @LastEditTime : 2020-01-22 10:46:57
+ * @LastEditors: Jason
+ * @LastEditTime: 2020-05-31 14:54:49
  * @Descripttion: 
  */
 const ArticleModel = require("../modules/article");
@@ -54,6 +54,8 @@ class articleController {
      */
     static async detail(ctx){
         let id = ctx.params.id;
+        console.log('获取到的id: ', id);
+
         if(id){
             try{
                 // 查询文章详情模型

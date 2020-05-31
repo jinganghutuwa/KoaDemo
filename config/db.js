@@ -2,8 +2,8 @@
  * @Author: Jason
  * @Date: 2020-01-20 15:20:45
  * @version: 
- * @LastEditors  : Jason
- * @LastEditTime : 2020-01-22 11:01:40
+ * @LastEditors: Jason
+ * @LastEditTime: 2020-05-31 13:53:58
  * @Descripttion: 主要用来创建mysql的数据库链接的
  */
 const Sequelize = require("sequelize")
@@ -12,8 +12,8 @@ const Sequelize = require("sequelize")
 const sqlConfig = {
     host: "localhost",
     user: "root",
-    password: "960725",
-    database: "tsetdb",
+    password: "19960417",
+    database: "test",
     databaseType:"mysql"
 }
 
