@@ -1,0 +1,84 @@
+<!--
+ * @Author: Jason
+ * @Date: 2020-01-20 14:57:42
+ * @version: 
+ * @LastEditors: Jason
+ * @LastEditTime: 2020-04-29 16:50:30
+ * @Descripttion: 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>上传图片</title>
+    <script src="https://cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+</head>
+<style>
+    .visually-hidden {
+        position: absolute !important;
+        height: 1px;
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px, 1px, 1px, 1px);
+    }
+
+    /* Separate rule for compatibility, :focus-within is required on modern Firefox and Chrome */
+    input.visually-hidden:focus+label {
+        outline: thin dotted;
+    }
+
+    input.visually-hidden:focus-within+label {
+        outline: thin dotted;
+    }
+</style>
+</head>
+
+<body>
+    <input type="text" id="article" placeholder="请输入需要查找的文章id">
+    <button onclick="testApi()">点击测试</button>
+    <script>
+        function testApi(e) {
+            console.log("开始执行")
+            var artId = $("#article").val()
+            console.log('artId: ', artId);
+            // if(!artId){
+            //     alert("请输入ID")
+            //     return 
+            // }
+            $.ajax({
+                url: 'http://127.0.0.1:4919/tony/index/test',
+                type: 'POST',
+                
+                // contentType:'application/x-www-form-urlencoded',
+                // data:{
+                //     name:"Jason",
+                //     age:24
+                // },
+                contentType: 'application/json',
+                data:JSON.stringify({
+                    artId:artId,
+                    name:"Jason",
+                    age:24
+                }),
+                dataType: 'json',
+                
+                async: true,
+                timeout: 8000,
+                success: function (res) {
+                    console.log('获取到的数据', res)
+                    
+                },
+                error: function (err) {
+                    console.log('执行失败', err)
+                }
+            })
+        }
+
+
+    </script>
+</body>
+
+</html>
